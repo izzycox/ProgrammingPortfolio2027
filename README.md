@@ -8,7 +8,7 @@
 
 [Link to Source Code](https://github.com/izzycox/ProgrammingPortfolio2027/tree/main/src/Calculator)
 
-# Calculator 2026 info
+# Calculator 2026 information
 
 ## Overview
 OOP Calculator using processing for graphics and java for computer programming.
