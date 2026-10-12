@@ -8,7 +8,7 @@
 
 [Link to Source Code](https://github.com/izzycox/ProgrammingPortfolio2027/tree/main/src/Calculator)
 
-# [Your Calculator's Name]
+# [Calculator]
 
 ## Overview
 OOP Calculator using processing for graphics and java for computer programming.
@@ -23,26 +23,21 @@ Still in progress:
 
 ## How to Run
 Built with Processing.
-Processing version: [Your version]
-
-[After the project files are uploaded, identify the
-project folder and main .pde file to open and run.]
+Processing version: Processing Java
 
 ## Controls
 Mouse:
-[Explain how to use the buttons.]
+Mouse clicked used for all button controls on screen
 
 Keyboard:
-[List keys that currently work and what they do.
-Identify planned controls as not yet implemented.]
+buttons 1-4 are functional on keyboard
 
 ## Project Files
-[Identify the main sketch and other tabs or assets
-you will upload.]
+calculator.pde
+button.pde
 
 ## Testing
-[Record one test: actions, expected result,
-and actual result.]
+the addition and subtraction are fully functional but the division and multiplication have logic errors
 
 ## Next Step
-[Name the specific behavior you will build or fix next.]
+Finish creating all operator buttons with functionalities
