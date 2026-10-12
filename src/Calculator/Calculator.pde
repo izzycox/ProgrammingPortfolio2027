@@ -97,7 +97,8 @@ void mouseReleased() {
       } else if (clicked == 'C') {
         l = 0.0;
         r = 0.0;
-        op = ' ';
+        displayVal = str(0.0);
+        op = 'C';
         left = true;
         newEntry = true;
       } else if (clicked == 'π') {
@@ -109,12 +110,7 @@ void mouseReleased() {
         }
       }
 
-      //for (int i = 0; i < opButtons.length; i++) {
-      //  if (opButtons[i].hover == true) {
-      //char clicked = (opButtons[i].val);
-      if (clicked == '=') {
-        performCalc();
-      } else if (clicked == 'q') {
+      else if (clicked == 'q') {
         if (left == true) {
           l = sq(l);
           displayVal = str(l);
@@ -183,6 +179,36 @@ void keyPressed() {
   } else if(key == '4') {
     println("you hit 4 " + keyCode );
     handleEvent('4',true);
+  } else if(key == '5') {
+    println("you hit 5 " + keyCode );
+    handleEvent('5',true);
+  } else if(key == '6') {
+    println("you hit 6 " + keyCode );
+    handleEvent('6',true);
+  } else if(key == '7') {
+    println("you hit 7 " + keyCode );
+    handleEvent('7',true);
+  } else if(key == '8') {
+    println("you hit 8 " + keyCode );
+    handleEvent('8',true);
+  } else if(key == '9') {
+    println("you hit 9 " + keyCode );
+    handleEvent('9',true);
+  } else if(key == '0') {
+    println("you hit 0 " + keyCode );
+    handleEvent('0',true);
+  }else if(key == '+') {
+    println("you hit + " + keyCode );
+    handleEvent('+',false);
+  }else if(key == '-') {
+    println("you hit - " + keyCode );
+    handleEvent('-',false);
+  }else if(key == 'x') {
+    println("you hit x " + keyCode );
+    handleEvent('x',false);
+  }else if(key == '÷') {
+    println("you hit ÷ " + keyCode );
+    handleEvent('÷',false);
   }
   
 }
