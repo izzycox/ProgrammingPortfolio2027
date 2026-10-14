@@ -30,14 +30,13 @@ Mouse:
 Mouse clicked used for all button controls on screen
 
 Keyboard:
-buttons 1-4 are functional on keyboard
+buttons 0-9 are functional on keyboard
 
 ## Project Files
 calculator.pde
 button.pde
 
 ## Testing
-the addition and subtraction are fully functional but the division and multiplication have logic errors
-
+the addition, division, multiplication and subtraction are fully functional
 ## Next Step
 Finish creating all operator buttons with functionalities
