@@ -77,59 +77,36 @@ void mouseReleased() {
   }
   //number buttons
   for (int i = 0; i < numButtons.length; i++) {
-    if (numButtons[i].hover == true){
-  handleEvent(numButtons[i].val,true);
+    if (numButtons[i].hover == true) {
+      handleEvent(numButtons[i].val, true);
     }
   }
 
   //operator Buttons
   for (int i = 0; i < opButtons.length; i++) {
     if (opButtons[i].hover == true) {
-      char clicked = (opButtons[i].val);
-
-      if (clicked == '=') {
-        performCalc();
-      } else if (clicked == 'q') {
-      } else if (clicked == '+' || clicked == '-' || clicked == 'x' || clicked == '÷') {
-        op = clicked;
-        left = false;
-        newEntry = true;
-      } else if (clicked == 'C') {
-        l = 0.0;
-        r = 0.0;
-        displayVal = str(0.0);
-        op = 'C';
-        left = true;
-        newEntry = true;
-      } else if (clicked == 'π') {
-        displayVal = str(PI);
-        if (left) {
-          l = PI;
-        } else {
-          r = PI;
-        }
-      }
-
-      else if (clicked == 'q') {
-        if (left == true) {
-          l = sq(l);
-          displayVal = str(l);
-        } else {
-          r = sq(r);
-          displayVal = str(r);
-        }
-      } else if (clicked == '.') {
-        if (!displayVal.contains(".")) {
-          if (left == true) {
-            displayVal += ".";
-            r = float(displayVal);
-          }
-        }
-      }
+      handleEvent(opButtons[i].val, false);
     }
-    printState();
   }
+
+  //CALL HANDle EVENT
+
+//else if (clicked == 'q') {
+//  if (left == true) {
+//    l = sq(l);
+//    displayVal = str(l);
+//  } else {
+//    r = sq(r);
+//    displayVal = str(r);
+//  }
+//}
 }
+
+
+//    }
+//    printState();
+//  }
+//}
 
 void printState() {
   println(
@@ -156,7 +133,7 @@ void performCalc() {
     result = l / r;
   } else if (op == 'x') {
     result = l * r;
-  } 
+  }
 
   displayVal = str(result);
   println("AFTER CALC -> result: " + result + " | displayVal; " +displayVal);
@@ -167,69 +144,90 @@ void performCalc() {
 }
 
 void keyPressed() {
-  if(key == '1') {
+  if (key == '1') {
     println("you hit 1 " + keyCode );
-    handleEvent('1',true);
-  } else if(key == '2') {
+    handleEvent('1', true);
+  } else if (key == '2') {
     println("you hit 2 " + keyCode );
-    handleEvent('2',true);
-  } else if(key == '3') {
+    handleEvent('2', true);
+  } else if (key == '3') {
     println("you hit 3 " + keyCode );
-    handleEvent('3',true);
-  } else if(key == '4') {
+    handleEvent('3', true);
+  } else if (key == '4') {
     println("you hit 4 " + keyCode );
-    handleEvent('4',true);
-  } else if(key == '5') {
+    handleEvent('4', true);
+  } else if (key == '5') {
     println("you hit 5 " + keyCode );
-    handleEvent('5',true);
-  } else if(key == '6') {
+    handleEvent('5', true);
+  } else if (key == '6') {
     println("you hit 6 " + keyCode );
-    handleEvent('6',true);
-  } else if(key == '7') {
+    handleEvent('6', true);
+  } else if (key == '7') {
     println("you hit 7 " + keyCode );
-    handleEvent('7',true);
-  } else if(key == '8') {
+    handleEvent('7', true);
+  } else if (key == '8') {
     println("you hit 8 " + keyCode );
-    handleEvent('8',true);
-  } else if(key == '9') {
+    handleEvent('8', true);
+  } else if (key == '9') {
     println("you hit 9 " + keyCode );
-    handleEvent('9',true);
-  } else if(key == '0') {
+    handleEvent('9', true);
+  } else if (key == '0') {
     println("you hit 0 " + keyCode );
-    handleEvent('0',true);
-  }else if(key == '+') {
+    handleEvent('0', true);
+  } else if (key == '+') {
     println("you hit + " + keyCode );
-    handleEvent('+',false);
-  }else if(key == '-') {
+    handleEvent('+', false);
+  } else if (key == '-') {
     println("you hit - " + keyCode );
-    handleEvent('-',false);
-  }else if(key == 'x') {
+    handleEvent('-', false);
+  } else if (key == 'x') {
     println("you hit x " + keyCode );
-    handleEvent('x',false);
-  }else if(key == '÷') {
+    handleEvent('x', false);
+  } else if (key == '÷') {
     println("you hit ÷ " + keyCode );
-    handleEvent('÷',false);
+    handleEvent('÷', false);
   }
-  
 }
 
 void handleEvent(char val, boolean isNum) {
-  if(isNum == true){
-      String digit = str(val);
+  if (isNum == true) {
+    String digit = str(val);
 
-      if (newEntry || displayVal.equals("0.0")) {
-        displayVal = digit;
-        newEntry = false;
-      } else {
-        displayVal += digit;
-      }
-      if (left) {
-        l = float(displayVal);
-      } else {
-        r = float(displayVal);
-      }
-    
+    if (newEntry || displayVal.equals("0.0")) {
+      displayVal = digit;
+      newEntry = false;
+    } else {
+      displayVal += digit;
+    }
+    if (left) {
+      l = float(displayVal);
+    } else {
+      r = float(displayVal);
+    }
   } else {
-    //other stuff
+    char clicked = val;
+
+    if (clicked == '=') {
+      performCalc();
+    } else if (clicked == 'q') {
+    } else if (clicked == '+' || clicked == '-' || clicked == 'x' || clicked == '÷') {
+      op = clicked;
+      left = false;
+      newEntry = true;
+    } else if (clicked == 'C') {
+      l = 0.0;
+      r = 0.0;
+      displayVal = str(0.0);
+      op = 'C';
+      left = true;
+      newEntry = true;
+    } else if (clicked == 'π') {
+      displayVal = str(PI);
+      if (left) {
+        l = PI;
+      } else {
+        r = PI;
+      }
+    }
   }
 }
